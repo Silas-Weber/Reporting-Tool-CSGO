@@ -2,6 +2,7 @@ from pdf import PDF
 import csv
 import requests
 import datetime
+from decimal import Decimal
 
 headers = {
     "Accept-Encoding": "br"
@@ -31,7 +32,6 @@ def calculate_sum():
             anzahl = row['Anzahl']
             gesamt += float(kiste_wert) * int(anzahl)
     return gesamt
-
 
 # macht eine API-Anfrage an Skinport, und gibt die letzten 24 Stunden Durchschnittspreise der angegebenen Items aus.
 def create_data_csv():
@@ -64,12 +64,8 @@ def main():
 
     date = datetime.datetime.now().strftime("%d.%m.%Y")
     print(date)
-    pdf.output(f"GO_Report_{date}.pdf")
+    pdf.output(f"Report/{date}.pdf")
     
-
-
-
-
 
 if __name__ == "__main__":
     main()
