@@ -60,7 +60,7 @@ def main():
     pdf = PDF()
     pdf.add_page(orientation='portrait', format="a4")
     pdf.case_table()
-    pdf.end_value(summe)
+    pdf.calculate_profit(summe)
 
     date = datetime.datetime.now().strftime("%d.%m.%Y")
     print(date)
